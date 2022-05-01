@@ -7,8 +7,8 @@ A cloud based 5 day training workshop which offeres insights into verilog coding
 
 # Outline
 
-- [Introduction](# 1. Introduction)
-2. [Verilog RTL Design and Synthesis](# 2. Verilog RTL Design anf Synthesis)
+- [Introduction](#1. Introduction)
+2. [Verilog RTL Design and Synthesis](#2. Verilog RTL Design anf Synthesis)
 3. [Decoding Library File(s)](# 3. Decoding Library File(s))
 4. [Hierarchial vs Flat Synthesis](# 4. Hierarchial vs Flat Synthesis)
 5. [Flop Coding Style](# 5. Flop Coding Style)
