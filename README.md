@@ -157,26 +157,25 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 # 5. Flop Coding Style
 
-| ![mul_mod_synth](docs/Day02/2022-05-01%20(10).png) | 
-|:--:| 
-| Synthesis result of a multi-module RTL design|
+## 5.1 - Lab 6 - Flop models
 
-| ![mul_mod_synth1](docs/Day02/2022-05-01%20(12).png) | 
+| ![mux1](docs/Day02/1.png) | 
 |:--:| 
-| Generated netlist|
+| Simulation Outputs |
 
-| ![mul_mod_synth2](docs/Day02/2022-05-01%20(19).png) | 
+| ![mux2](docs/Day02/2i.png) | 
 |:--:| 
-| Hierarchial design output |
+| Synthesised Design |
 
-| ![mul_mod_synth3](docs/Day02/2022-05-01%20(20).png) | 
+## 5.2 - Lab 7 - Interesting Optimisations
+
+| ![mul3](docs/Day02/3.png) | 
 |:--:| 
-| Flattened Design|
+| ax2 Multiplier without multiplier cell |
 
-| ![mul_mod_synth4](docs/Day02/2022-05-01%20(25).png) | 
+| ![mul4](docs/Day02/4.png) | 
 |:--:| 
-| Synthesis of a sub module|
-
+| ax9 Multiplier without multiplier cell |
 
 # 6. Combinational Optimisations
 
