@@ -38,6 +38,10 @@ The functional behaviour of any circuit design is verified by simulating the dev
 
 To simulate digital circuits, a test signal can be **forced** on the simulator or a **testbench** can be written to automate the simulation process. *Testbench* applies stimulus(often known as test vectors) to the design. A simulator evaluates output when a change in the input is detected. Any simulator on applying stimulus to the DUT generates a **.vcd** file as output which can be opened using a VCD waveform viewer (gtkwave in this workshop).
 
+| ![files](docs/Day02/2022-05-01%20(8).png) | 
+|:--:| 
+| Files used throughout the course|
+
 ## 2.i Lab 1 - Cloning git files and viewing directory contents
 
 | ![Creating directory](docs/Day01/2022-04-27%20(2).png) | 
@@ -103,9 +107,53 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 # 3. Decoding Library Files
 
+## 3.1 Lab 4 - Analysing .lib file
+
+| ![Initial lines of .lib file](docs/Day02/1.png) | 
+|:--:| 
+| Highlighted text shows i) File name - process,voltage and operating temperature given ii) Units for various parameters and other required information|
+
+| ![Pin_det](docs/Day02/2022-05-01%20(2).png) |
+|:--:| 
+| Pin Specific Details |
+
+| ![tim](docs/Day02/2022-05-01%20(3).png) | 
+|:--:| 
+| Timing related details|
+
+| ![flavours](docs/Day02/2022-05-01%20(5).png) | 
+|:--:| 
+| Same logic unit available in different flavours|
+
+| ![flavours](docs/Day02/2022-05-01%20(6).png) | 
+|:--:| 
+| Comparison of area between mux2_2, mux2_4 and mux2_8 respectively - More Area, less delay but increased power consumption|
+
 
 
 # 4. Hierarchial vs Flat Synthesis
+
+## 4.1. Lab 5 - Hierarchial Synthesis and flattened design
+
+| ![mul_mod_synth](docs/Day02/2022-05-01%20(10).png) | 
+|:--:| 
+| Synthesis result of a multi-module RTL design|
+
+| ![mul_mod_synth1](docs/Day02/2022-05-01%20(12).png) | 
+|:--:| 
+| Generated netlist|
+
+| ![mul_mod_synth2](docs/Day02/2022-05-01%20(19).png) | 
+|:--:| 
+| Hierarchial design output |
+
+| ![mul_mod_synth2](docs/Day02/2022-05-01%20(20).png) | 
+|:--:| 
+| Flattened Design|
+
+
+
+
 
 # 5. Flop Coding Style
 
