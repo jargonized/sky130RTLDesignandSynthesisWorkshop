@@ -29,6 +29,10 @@ In this workshop, **Verilog** was used as the target HDL language. **iverilog** 
 
 # 2. Verilog RTL and Synthesis
 
+The functional behaviour of any circuit design is verified by simulating the device under test(DUT). Famous simulation tools include LTSpice and NgSpice for analog circuits. ModelSim simulator is widely used to simulate digital circuits. To verify the behaviour of a circuit, test cases pertaining to various use cases should be fed and the corresponding output should be observed and analysed. Simulations often reveal the functionality and the potential pitfalls associated with the design. 
+
+To simulate digital circuits, a test signal can be **forced** on the simulator or a **testbench** can be written to automate the simulation process. *Testbench* applies stimulus(often known as test vectors) to the design. A simulator evaluates output when a change in the input is detected. Any simulator on applying stimulus to the DUT generates a **.vcd** (*value change dump* format) file as output which can be opened using a VCD waveform viewer (gtkwave in this workshop).
+
 # 3. Decoding Library Files
 
 # 4. Hierarchial vs Flat Synthesis
