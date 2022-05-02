@@ -37,6 +37,6 @@ A cloud based 5 day training workshop which offeres insights into verilog coding
 
 # 9. Synthesis - Simulation Mismatch
 
-## 9.1. Blocking vs Non- Blocking Statements
+## 9.i. Blocking vs Non- Blocking Statements
 
 # 10. Synthesis Optimisation Techniques
