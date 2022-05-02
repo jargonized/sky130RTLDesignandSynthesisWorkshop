@@ -167,6 +167,10 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 |:--:| 
 | Simulation Outputs |
 
+| ![muxn](docs/Day02/5.png) | 
+|:--:| 
+| Synthesised Design - Asynchronous Reset vs Synchronous Reset |
+
 
 
 ## 5.2 - Lab 7 - Interesting Optimisations
