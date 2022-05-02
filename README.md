@@ -10,7 +10,12 @@ Workshop conducted by VLSI System Design : [VSD website](https://www.vlsisystemd
 # Outline
 
 1. [Introduction](#1-Introduction)
-2. [Verilog RTL Design and Synthesis](#2-verilog-rtl-and-synthesis)
+2. [Verilog RTL Design and Synthesis](#2-verilog-rtl-and-synthesis) 
+    1. [Lab - To create a directory and clone .git files]
+    2. [Commands to simulate a RTL design]
+    3. [Lab - Simulation]
+    4. [Commands to run Synthesis]
+    5. [Lab - Synthesis]
 3. [Decoding Library File(s)](#3-decoding-library-file(s))
 4. [Hierarchial vs Flat Synthesis](#4-hierarchial-vs-flat-synthesis)
 5. [Flop Coding Style](#5-flop-coding-style)
@@ -47,7 +52,7 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 |:--:| 
 | To view the files|
 
-## 2.ii Lab 2 - To simulate a counter
+## 2.iii Lab 2 - To simulate a counter
 
 | ![Simulation commands](docs/Day01/2022-04-27%20(7).png) | 
 |:--:| 
@@ -57,7 +62,7 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 |:--:| 
 | GTKWave Window |
 
-## 2.iii Lab 3 - To synthesize a RTL design
+## 2.v Lab 3 - To synthesize a RTL design
 
 | ![Launch yosys](docs/Day01/2022-04-27%20(8).png) | 
 |:--:| 
@@ -97,6 +102,8 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 
 # 3. Decoding Library Files
+
+
 
 # 4. Hierarchial vs Flat Synthesis
 
