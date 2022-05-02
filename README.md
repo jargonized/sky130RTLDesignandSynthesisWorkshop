@@ -171,8 +171,6 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 |:--:| 
 | Synthesised Design - Asynchronous Reset vs Synchronous Reset |
 
-
-
 ## 5.2 - Lab 7 - Interesting Optimisations
 
 | ![mul3](docs/Day02/3.png) | 
@@ -185,7 +183,50 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 # 6. Combinational Optimisations
 
+## 6.1 Lab 8 - Optimisation of Combinational Logic
+
+| ![combo1](docs/Day03/9.png) | 
+|:--:| 
+| Optimisation_Check_1 |
+
+| ![combo2](docs/Day03/8.png) | 
+|:--:| 
+| Optimisation_Check_2 |
+
+| ![combo3](docs/Day03/7.png) | 
+|:--:| 
+| Optimisation_Check_3 |
+
+
 # 7. Sequential Optimisations
+
+## 7.1 Lab 9 - Optimisation of Sequential Logic
+
+| ![combo1](docs/Day03/6.png) | 
+|:--:| 
+| Dff_Opt_1 |
+
+| ![combo2](docs/Day03/5.png) | 
+|:--:| 
+| Dff_Opt_2 |
+
+| ![combo3](docs/Day03/4.png) | 
+|:--:| 
+| Dff_Opt_3 |
+
+| ![combo3](docs/Day03/3.png) | 
+|:--:| 
+| Dff_Opt_4 |
+
+## 7.1 Lab 9 - Counter Optimisation
+
+| ![combo3](docs/Day03/2.png) | 
+|:--:| 
+| Counter 1 Optimisation |
+
+| ![combo3](docs/Day03/1.png) | 
+|:--:| 
+| Counter 2 Optimisation |
 
 # 8. Gate Level Simulation (GLS)
 
