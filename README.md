@@ -326,6 +326,21 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 # 11. Summary
 
+The outcomes of this workshop are as follows:
+ - Introduction to open source simulation tools
+ - Introduction to sky130 nm PDK
+ - Simulation of RTL models using iverilog and gtkwave
+ - Understanding the nuances behind synthesis
+ - Synthesis of RTL models using yosys
+ - Understnading standard library cells
+ - Design of combinational logic using flops 
+ - Optimisation of design
+ - Gate level simulation and it's importance
+ - if, case constructs
+ - for loop and for generate constructs
+
+Handwritten notes taken during the 5-day course of th workshop - [Notes](/docs/VSD_RTL_Workshop_Notes.pdf)
+
 # 12. Acknowledgement
 
 # 13. Bibliography
