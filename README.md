@@ -554,11 +554,44 @@ A or B is given as input to AND gate with the other input as C. But output of AN
 
 # 10. Synthesis Optimisation Techniques
 
+Missing if or case condition leads to inferred latches. A latch is inferred when the output of combinatorial logic has undefined states, that is it must hold its previous value.
+
+Combinatorial logic does not have any flip-flop to hold state therefore the output should always be defined by the inputs.
+
+Inferred latches reflect bad coding style.
+
+Sometimes inferred latches are intentional (in case of counters).
+
+**Note:** Variable to which a value is assigned inside a if or case construct **should be a reg**.
+
 ## 10.1 - Lab 12 - Incomplete if - Inferred Latches
+
+```
+module incomp_if (input i0 , input i1 , input i2 , output reg y);
+always @ (*)
+begin
+	if(i0)
+		y <= i1;
+end
+endmodule
+```
 
 | ![bsc](docs/Day05/1.png) | 
 |:--:| 
 | Case 1 - Incomplete if |
+
+```
+module incomp_if2 (input i0 , input i1 , input i2 , input i3, output reg y);
+always @ (*)
+begin
+	if(i0)
+		y <= i1;
+	else if (i2)
+		y <= i3;
+
+end
+endmodule
+```
 
 | ![bsc](docs/Day05/2.png) | 
 |:--:| 
@@ -570,40 +603,188 @@ A or B is given as input to AND gate with the other input as C. But output of AN
 
 | ![bsc](docs/Day05/11.png) | 
 |:--:| 
-| Behavioural Simulation and  GLS of incomp_if2 |\
+| Behavioural Simulation and  GLS of incomp_if2 |
 
 
 ## 10.2 - Lab 13 - Incomplete case - Inferred Latches
+
+Three contributing scenarios:
+- incomplete case
+- partial assignments
+- overlapping cases (always avoid as it may lead to undesirable output because case does not have a fixed priority order like if)
+
+```
+module incomp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg y);
+always @ (*)
+begin
+	case(sel)
+		2'b00 : y = i0;
+		2'b01 : y = i1;
+	endcase
+end
+endmodule
+```
 
 | ![bsc](docs/Day05/3.png) | 
 |:--:| 
 | Case 1 - Incomplete case |
 
+```
+module comp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg y);
+always @ (*)
+begin
+	case(sel)
+		2'b00 : y = i0;
+		2'b01 : y = i1;
+		default : y = i2;
+	endcase
+end
+endmodule
+```
+
 | ![bsc](docs/Day05/4.png) | 
 |:--:| 
 | Case 2 - Complete case |
+
+```
+module bad_case (input i0 , input i1, input i2, input i3 , input [1:0] sel, output reg y);
+always @(*)
+begin
+	case(sel)
+		2'b00: y = i0;
+		2'b01: y = i1;
+		2'b10: y = i2;
+		2'b1?: y = i3;
+		//2'b11: y = i3;
+	endcase
+end
+
+endmodule
+```
 
 | ![bsc](docs/Day05/5.png) | 
 |:--:| 
 |  Case 3 - Bad Case case|
 
+```
+module partial_case_assign (input i0 , input i1 , input i2 , input [1:0] sel, output reg y , output reg x);
+always @ (*)
+begin
+	case(sel)
+		2'b00 : begin
+			y = i0;
+			x = i2;
+			end
+		2'b01 : y = i1;
+		default : begin
+		           x = i1;
+			   y = i2;
+			  end
+	endcase
+end
+endmodule
+```
+
 | ![bsc](docs/Day05/6.png) | 
 |:--:| 
-|  Case 2 - Partial Assign case |
+|  Case 4 - Partial Assign case |
 
 ## 10.3 - Lab 14 - for loop and for generate
 
+for loop construct is always used inside the 'always' block to evaluate expressions.
+for generate consturct is always used outside the 'always' block to instantiate hardware.
+
+```
+module mux_generate (input i0 , input i1, input i2 , input i3 , input [1:0] sel  , output reg y);
+wire [3:0] i_int;
+assign i_int = {i3,i2,i1,i0};
+integer k;
+always @ (*)
+begin
+for(k = 0; k < 4; k=k+1) begin
+	if(k == sel)
+		y = i_int[k];
+end
+end
+endmodule
+```
+
 | ![bsc](docs/Day05/7.png) | 
 |:--:| 
-| Multiplexer using for generate |
+| Multiplexer using for loop |
+
+```
+module demux_case (output o0 , output o1, output o2 , output o3, output o4, output o5, output o6 , output o7 , input [2:0] sel  , input i);
+reg [7:0]y_int;
+assign {o7,o6,o5,o4,o3,o2,o1,o0} = y_int;
+integer k;
+always @ (*)
+begin
+y_int = 8'b0;
+	case(sel)
+		3'b000 : y_int[0] = i;
+		3'b001 : y_int[1] = i;
+		3'b010 : y_int[2] = i;
+		3'b011 : y_int[3] = i;
+		3'b100 : y_int[4] = i;
+		3'b101 : y_int[5] = i;
+		3'b110 : y_int[6] = i;
+		3'b111 : y_int[7] = i;
+	endcase
+
+end
+endmodule
+```
 
 | ![bsc](docs/Day05/8.png) | 
 |:--:| 
-| Demultiplexer using case statement |
+| Demultiplexer using case statement - code becomes lengthy when number of cases increases (raises in the order of 2^n) |
+
+```
+module demux_generate (output o0 , output o1, output o2 , output o3, output o4, output o5, output o6 , output o7 , input [2:0] sel  , input i);
+reg [7:0]y_int;
+assign {o7,o6,o5,o4,o3,o2,o1,o0} = y_int;
+integer k;
+always @ (*)
+begin
+y_int = 8'b0;
+for(k = 0; k < 8; k++) begin
+	if(k == sel)
+		y_int[k] = i;
+end
+end
+endmodule
+```
 
 | ![bsc](docs/Day05/9.png) | 
 |:--:| 
-| Demultiplexer using for generate |
+| Demultiplexer using for generate - can be extended for higher values|
+
+```
+//fa.v
+module fa (input a , input b , input c, output co , output sum);
+	assign {co,sum}  = a + b + c ;
+endmodule
+
+//rca.v
+module rca (input [7:0] num1 , input [7:0] num2 , output [8:0] sum);
+wire [7:0] int_sum;
+wire [7:0]int_co;
+
+genvar i;
+generate
+	for (i = 1 ; i < 8; i=i+1) begin
+		fa u_fa_1 (.a(num1[i]),.b(num2[i]),.c(int_co[i-1]),.co(int_co[i]),.sum(int_sum[i]));
+	end
+
+endgenerate
+fa u_fa_0 (.a(num1[0]),.b(num2[0]),.c(1'b0),.co(int_co[0]),.sum(int_sum[0]));
+
+
+assign sum[7:0] = int_sum;
+assign sum[8] = int_co[7];
+endmodule
+```
 
 | ![bsc](docs/Day05/10.png) | 
 |:--:| 
@@ -635,7 +816,6 @@ The above work was carried out as a part of the 5-day workshop on RTL Design org
 
 1. [Library Files](https://www.teamvlsi.com/2020/05/lib-and-lef-file-in-asic-design.html)
 2. [Glitches](https://vlsiuniverse.blogspot.com/2017/10/glitches-in-combinational-circuits.html)
-3. 
 
 
 
