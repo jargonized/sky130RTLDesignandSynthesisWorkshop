@@ -247,6 +247,8 @@ Flops are initialised using a set or reset pin. These pins can be synchronous or
 - Synchronous - Set or reset on active low/ active high signal sampled at rising/falling edge of the clock.
 - Asynchronous - Set or reset on active high/low activity observed on the pin.
 
+![flop example](/docs/eg2.png)
+
 A single flop can have both sync and async pins. Set and reset pin when used together in a flop can cause race conditions.
 
 ## 5.1 - Lab 6 - Flop models
@@ -477,25 +479,78 @@ endmodule
 
 # 8. Gate Level Simulation (GLS)
 
+Gate level simualtion is verifying the logical correctness of the device under test with it's **netlist**. GLS is also used to ensure timing of the module(given the gate level model is delay annotated).
+
+![gls](/docs/eg3.png)
+
+Gate level models are of two types:
+- TIming aware (delay annotated + functionality)
+- Functional
+
 ## 8.1 - Lab 10 - Gate level simulation observation
+
+**To be noted:** Sensitivity list
+
+```
+module good_mux (input i0 , input i1 , input sel , output reg y);
+always @ (*)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+```
 
 | ![gm](docs/Day04/2.png) | 
 |:--:| 
 | Good Mux - Top - Behavioural Simulation Bottom - Gate Level Simulation |
 
+```
+module bad_mux (input i0 , input i1 , input sel , output reg y);
+always @ (sel)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+```
+
 | ![bm](docs/Day04/1.png) | 
 |:--:| 
 | Bad Mux - Top - Behavioural Simulation Bottom - Gate Level Simulation |
 
+It is observed in bad mux that output in RTL model is not sensitive to change in input singals thus causing incorrect outputs.
 
 # 9. Synthesis - Simulation Mismatch
 
+Three major contributing reasons:
+- Missing sensitivity list
+- Blocking vs non-blocking assignments 
+	- This comes into picture inisde the 'always' block. = means sequential execution (like C, C++); <= means concurrent execution where RHS is evaluated at first and then assigned to LHS. Use blocking statements inside always is generally to be avoided.
+- Non standard verilog coding practices
+
 ## 9.1 - Lab 11 - Mismatch due to blocking statements
+
+```
+module blocking_caveat (input a , input b , input  c, output reg d); 
+reg x;
+always @ (*)
+begin
+	d = x & c;
+	x = a | b;
+end
+endmodule
+```
+
+A or B is given as input to AND gate with the other input as C. But output of AND gate is evaluated at first meaning previous value of X is being sampled which is undesirable.
 
 | ![bsc](docs/Day04/3.png) | 
 |:--:| 
 | Example of Blocking Statement Caveat |
-
 
 # 10. Synthesis Optimisation Techniques
 
