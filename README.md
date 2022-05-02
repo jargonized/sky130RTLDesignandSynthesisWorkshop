@@ -7,11 +7,11 @@ A cloud based 5 day training workshop which offeres insights into verilog coding
 
 # Outline
 
-- [1.Introduction](#1-Introduction)
-- [2.Verilog RTL Design and Synthesis](#2-verilog-rtl-and-synthesis)
+1. [Introduction](#1-Introduction)
+2. [Verilog RTL Design and Synthesis](#2-verilog-rtl-and-synthesis)
 3. [Decoding Library File(s)](#3-decoding-library-file(s))
-4. [Hierarchial vs Flat Synthesis](# 4. Hierarchial vs Flat Synthesis)
-5. [Flop Coding Style](# 5. Flop Coding Style)
+4. [Hierarchial vs Flat Synthesis](#4-hierarchial-vs-flat-synthesis)
+5. [Flop Coding Style](#5-flop-coding-style)
 6. [Combinational Optimisations](# 6. Combinational Optimisations)
 7. [Sequential Optimisations](# 7. Sequential Optimisations)
 8. [Gate Level Simulation (GLS)](# 8. Gate Level Simulation (GLS))
