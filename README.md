@@ -159,13 +159,15 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 ## 5.1 - Lab 6 - Flop models
 
-| ![mux1](docs/Day02/1.png) | 
+| ![mux1](docs/Day02/index.png) | 
 |:--:| 
 | Simulation Outputs |
 
 | ![mux2](docs/Day02/2i.png) | 
 |:--:| 
-| Synthesised Design |
+| Simulation Outputs |
+
+
 
 ## 5.2 - Lab 7 - Interesting Optimisations
 
