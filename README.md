@@ -252,7 +252,7 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 # 10. Synthesis Optimisation Techniques
 
-## 10.1 - Lab 11 - Incomplete if - Inferred Latches
+## 10.1 - Lab 12 - Incomplete if - Inferred Latches
 
 | ![bsc](docs/Day05/1.png) | 
 |:--:| 
@@ -262,13 +262,36 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 |:--:| 
 | Case 2 - Incomplete if |
 
-| ![bsc](docs/Day05/4.png) | 
+| ![bsc](docs/Day05/12.png) | 
 |:--:| 
 | Behavioural Simulation and  GLS of incomp_if|
 
+| ![bsc](docs/Day05/11.png) | 
+|:--:| 
+| Behavioural Simulation and  GLS of incomp_if2 |\
+
+
+## 10.2 - Lab 13 - Incomplete case - Inferred Latches
+
 | ![bsc](docs/Day05/3.png) | 
 |:--:| 
-| Behavioural Simulation and  GLS of incomp_if2 |
+| Case 1 - Incomplete case |
 
+| ![bsc](docs/Day05/4.png) | 
+|:--:| 
+| Case 2 - Complete case |
 
+| ![bsc](docs/Day05/5.png) | 
+|:--:| 
+|  Case 3 - Bad Case case|
+
+| ![bsc](docs/Day05/6.png) | 
+|:--:| 
+|  Case 2 - Partial Assign case |
+
+# 11. Summary
+
+# 12. Acknowledgement
+
+# 13. Bibliography
 
