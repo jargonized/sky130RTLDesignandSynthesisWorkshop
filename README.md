@@ -243,7 +243,7 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 # 9. Synthesis - Simulation Mismatch
 
-## 9.1. Lab 11 - Mismatch due to blocking statements
+## 9.1 - Lab 11 - Mismatch due to blocking statements
 
 | ![bsc](docs/Day04/3.png) | 
 |:--:| 
@@ -251,3 +251,24 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 
 # 10. Synthesis Optimisation Techniques
+
+## 10.1 - Lab 11 - Incomplete if - Inferred Latches
+
+| ![bsc](docs/Day05/1.png) | 
+|:--:| 
+| Case 1 - Incomplete if |
+
+| ![bsc](docs/Day05/2.png) | 
+|:--:| 
+| Case 2 - Incomplete if |
+
+| ![bsc](docs/Day05/4.png) | 
+|:--:| 
+| Behavioural Simulation and  GLS of incomp_if|
+
+| ![bsc](docs/Day05/3.png) | 
+|:--:| 
+| Behavioural Simulation and  GLS of incomp_if2 |
+
+
+
