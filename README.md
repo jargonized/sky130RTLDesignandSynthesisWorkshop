@@ -806,11 +806,11 @@ The outcomes of this workshop are as follows:
  - if, case constructs
  - for loop and for generate constructs
 
-Handwritten notes taken during the 5-day course of th workshop - [Notes](/docs/VSD_RTL_Workshop_Notes.pdf)
+Hand written notes taken during the 5-day course of th workshop - [Notes](/docs/VSD_RTL_Workshop_Notes.pdf)
 
 # 12. Acknowledgement
 
-The above work was carried out as a part of the 5-day workshop on RTL Design organised by VLSI System Design. I am greatly indebted to Kunal Ghosh (course instructor), Shon Taware (Teaching and Technical Assistant) and the entire VSD Team for this great learning experience and immense guidance provivded throughout the workshop.
+The above work was carried out as a part of the 5-day workshop on RTL Design organised by VLSI System Design. I am greatly indebted to Kunal Ghosh (course instructor), Shon Taware (Teaching and Technical Assistant) and the entire VSD Team for this great learning experience and immense guidance provided throughout the workshop.
 
 # 13. Bibliography
 
