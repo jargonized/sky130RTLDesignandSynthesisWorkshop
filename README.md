@@ -16,7 +16,7 @@ A cloud based 5 day training workshop which offeres insights into verilog coding
 7. [Sequential Optimisations](#7-sequential-optimisations)
 8. [Gate Level Simulation (GLS)](#8-gate-level-simulation-(GLS))
 9. [Synthesis - Simulation Mismatch](#9-synthesis-simulation-mismatch)
-  9.1. [Blocking vs Non- Blocking Statements](#9-1-Blocking-vs-Non-Blocking-statements)
+    9.1. [Blocking vs Non- Blocking Statements](#9-1-Blocking-vs-Non-Blocking-statements)
 10. [Synthesis Optimisation Techniques](#10-synthesis-optimisation-techniques)
 
 # 1. Introduction
