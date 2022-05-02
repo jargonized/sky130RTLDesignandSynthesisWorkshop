@@ -5,7 +5,7 @@
 
 A cloud based 5 day training workshop which offeres insights into verilog coding techniques for successful elaboration and synthesis using sky130 PDK.
 
-Workshop conducted by VLSI System Design : [link to VLS website](https://www.vlsisystemdesign.com/)
+Workshop conducted by VLSI System Design : [VSD website](https://www.vlsisystemdesign.com/)
 
 # Outline
 
@@ -22,6 +22,10 @@ Workshop conducted by VLSI System Design : [link to VLS website](https://www.vls
 10. [Synthesis Optimisation Techniques](#10-synthesis-optimisation-techniques)
 
 # 1. Introduction
+
+Register Transfer Level (RTL) is an abstraction technique for defining the digital portions of a design. It serves as the golden model in the design and verification flow. The RTL design is usually captured using a hardware description language (HDL) such as Verilog or VHDL. When the language is fed into a synthesis tool, abstraction of the design that is used for all downstream implementation operations.
+
+In this workshop, **Verilog** was used as the target HDL language. **iverilog** was used to generate Value Dump Files (VCD) and **gtkwave** was used to view the simulation outputs. OpenLANE's synthesis tool **yosys** was used to synthesise the RTL models.
 
 # 2. Verilog RTL and Synthesis
 
