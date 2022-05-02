@@ -147,15 +147,36 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 |:--:| 
 | Hierarchial design output |
 
-| ![mul_mod_synth2](docs/Day02/2022-05-01%20(20).png) | 
+| ![mul_mod_synth3](docs/Day02/2022-05-01%20(20).png) | 
 |:--:| 
 | Flattened Design|
 
-
-
-
+| ![mul_mod_synth4](docs/Day02/2022-05-01%20(25).png) | 
+|:--:| 
+| Synthesis of a sub module|
 
 # 5. Flop Coding Style
+
+| ![mul_mod_synth](docs/Day02/2022-05-01%20(10).png) | 
+|:--:| 
+| Synthesis result of a multi-module RTL design|
+
+| ![mul_mod_synth1](docs/Day02/2022-05-01%20(12).png) | 
+|:--:| 
+| Generated netlist|
+
+| ![mul_mod_synth2](docs/Day02/2022-05-01%20(19).png) | 
+|:--:| 
+| Hierarchial design output |
+
+| ![mul_mod_synth3](docs/Day02/2022-05-01%20(20).png) | 
+|:--:| 
+| Flattened Design|
+
+| ![mul_mod_synth4](docs/Day02/2022-05-01%20(25).png) | 
+|:--:| 
+| Synthesis of a sub module|
+
 
 # 6. Combinational Optimisations
 
