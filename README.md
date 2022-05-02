@@ -35,6 +35,67 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 ## 2.i Lab 1 - Cloning git files and viewing directory contents
 
+| ![Creating directory](docs/Day01/2022-04-27%20(2).png) | 
+|:--:| 
+| Creating a directory and checking if iverilog and yosys are functional |
+
+| ![Cloning required files](docs/Day01/2022-04-27%20(3).png) |
+|:--:| 
+| To clone required .lib and verilog files [Link to Files](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop)|
+
+| ![Cloning required files](docs/Day01/2022-04-27%20(4).png) | 
+|:--:| 
+| To view the files|
+
+## 2.ii Lab 2 - To simulate a counter
+
+| ![Simulation commands](docs/Day01/2022-04-27%20(7).png) | 
+|:--:| 
+| Commands for simulating a RTL Model |
+
+| ![Simualtion output](docs/Day01/2022-04-27%20(5).png) | 
+|:--:| 
+| GTKWave Window |
+
+## 2.iii Lab 3 - To synthesize a RTL design
+
+| ![Launch yosys](docs/Day01/2022-04-27%20(8).png) | 
+|:--:| 
+| Launch yosys |
+
+| ![read commands](docs/Day01/2022-04-27%20(9).png) | 
+|:--:| 
+| Read the library file, design files and sythesize the top module |
+
+| ![Stats](docs/Day01/2022-04-27%20(12).png) | 
+|:--:| 
+| Synthesis Statistics - Displayed on successful synthesis ; Generate netlist |
+
+| ![Net res](docs/Day01/2022-04-27%20(13).png) | 
+|:--:| 
+| Netlist Result ; Show command to display synthesised design |
+
+| ![show op](docs/Day01/2022-04-27%20(14).png) | 
+|:--:| 
+| Synthesised Design|
+
+| ![Write netlist](docs/Day01/2022-04-27%20(19).png) | 
+|:--:| 
+| To write netlist with attributes |
+
+| ![attr op](docs/Day01/2022-04-27%20(16).png) | 
+|:--:| 
+| Generated Netlist |
+
+| ![no attr net](docs/Day01/2022-04-27%20(21).png) | 
+|:--:| 
+| To write netlist without attributes |
+
+| ![no attr op](docs/Day01/2022-04-27%20(20).png) | 
+|:--:| 
+| Generated Netlist |
+
+
 # 3. Decoding Library Files
 
 # 4. Hierarchial vs Flat Synthesis
