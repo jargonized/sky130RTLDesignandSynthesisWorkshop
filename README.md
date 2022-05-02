@@ -290,17 +290,44 @@ Truth Table realisation revealed ax2 in binary is a appended with a zero. ax9 ca
 
 # 6. Combinational Optimisations
 
-Optimisation is required to squeeze the 
+Optimisation is required to squeeze the logic to obtain minimum area and power. Techniques used are:
+- Constant Propagation (reducing the logic if constant signals are fed as input)
+- Boolean Logic Optimisation (using Boolean Algebra laws)
+
+By default, synthesiser optimises any given logic. Optimisation can be forced by running the following command.
+
+```
+$ opt_clean -purge
+// to be run after synth cmd
+```
 
 ## 6.1 Lab 8 - Optimisation of Combinational Logic
 
+```
+module opt_check (input a , input b , output y);
+	assign y = a?b:0;
+endmodule
+```
 | ![combo1](docs/Day03/9.png) | 
 |:--:| 
 | Optimisation_Check_1 |
 
+```
+module opt_check2 (input a , input b , output y);
+	assign y = a?1:b;
+endmodule
+
+```
+
 | ![combo2](docs/Day03/8.png) | 
 |:--:| 
 | Optimisation_Check_2 |
+
+```
+module opt_check3 (input a , input b, input c , output y);
+	assign y = a?(c?b:0):0;
+endmodule
+```
 
 | ![combo3](docs/Day03/7.png) | 
 |:--:| 
@@ -309,19 +336,95 @@ Optimisation is required to squeeze the
 
 # 7. Sequential Optimisations
 
+Techniques used:
+- Basic 
+    - Sequential Constant Propagation
+- Advanced
+    - State optimisation (State Reduction)
+    - Retiming
+    - Sequential Logic Cloning
+
 ## 7.1 Lab 9 - Optimisation of Sequential Logic
+
+```
+module dff_const1(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b0;
+	else
+		q <= 1'b1;
+end
+
+endmodule
+```
 
 | ![combo1](docs/Day03/6.png) | 
 |:--:| 
 | Dff_Opt_1 |
 
+```
+module dff_const2(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b1;
+	else
+		q <= 1'b1;
+end
+
+endmodule
+```
+
 | ![combo2](docs/Day03/5.png) | 
 |:--:| 
 | Dff_Opt_2 |
 
+```
+module dff_const4(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b1;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+
+endmodule
+```
+
 | ![combo3](docs/Day03/4.png) | 
 |:--:| 
 | Dff_Opt_3 |
+
+```
+module dff_const5(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b0;
+		q1 <= 1'b0;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+
+endmodule
+```
 
 | ![combo3](docs/Day03/3.png) | 
 |:--:| 
@@ -329,9 +432,44 @@ Optimisation is required to squeeze the
 
 ## 7.2 Lab 9 - Counter Optimisation
 
+Though the counter requires three flops, only one flop has been synthesised in the first case(output depends only on Q of first flop) thus optimising the design.
+
+```
+module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = count[0];
+
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
+
+endmodule
+```
+
+
 | ![combo3](docs/Day03/2.png) | 
 |:--:| 
 | Counter 1 Optimisation |
+
+```
+module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = (count[2:0] == 3'b100);
+
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
+
+endmodule
+```
 
 | ![combo3](docs/Day03/1.png) | 
 |:--:| 
