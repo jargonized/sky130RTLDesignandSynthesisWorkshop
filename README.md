@@ -230,8 +230,24 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 # 8. Gate Level Simulation (GLS)
 
+## 8.1 - Lab 10 - Gate level simulation observation
+
+| ![gm](docs/Day04/2.png) | 
+|:--:| 
+| Good Mux - Top - Behavioural Simulation Bottom - Gate Level Simulation |
+
+| ![bm](docs/Day04/1.png) | 
+|:--:| 
+| Bad Mux - Top - Behavioural Simulation Bottom - Gate Level Simulation |
+
+
 # 9. Synthesis - Simulation Mismatch
 
-## 9.i. Blocking vs Non- Blocking Statements
+## 9.1. Lab 11 - Mismatch due to blocking statements
+
+| ![bsc](docs/Day04/3.png) | 
+|:--:| 
+| Example of Blocking Statement Caveat |
+
 
 # 10. Synthesis Optimisation Techniques
