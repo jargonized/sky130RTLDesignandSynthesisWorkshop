@@ -5,6 +5,8 @@
 
 A cloud based 5 day training workshop which offeres insights into verilog coding techniques for successful elaboration and synthesis using sky130 PDK.
 
+Workshop conducted by VLSI System Design : [link to VLS website](https://www.vlsisystemdesign.com/)
+
 # Outline
 
 1. [Introduction](#1-Introduction)
