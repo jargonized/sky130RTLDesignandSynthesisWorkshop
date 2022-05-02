@@ -343,5 +343,9 @@ Handwritten notes taken during the 5-day course of th workshop - [Notes](/docs/V
 
 # 12. Acknowledgement
 
+The above work was carried out as a part of the 5-day workshop on RTL Design organised by VLSI System Design. I am greatly indebted to Kunal Ghosh (course instructor), Shon Taware (Teaching and Technical Assistant) and the entire VSD Team for this great learning experience and immense guidance provivded throughout the workshop.
+
 # 13. Bibliography
+
+
 
