@@ -9,14 +9,14 @@ Workshop conducted by VLSI System Design : [VSD website](https://www.vlsisystemd
 
 # Outline
 
-1. [Introduction](#1-Introduction)
+1. [Introduction](#1-introduction)
 2. [Verilog RTL Design and Synthesis](#2-verilog-rtl-and-synthesis) 
     1. [To create a directory and clone .git files](https://github.com/jargonized/sky130RTLDesignandSynthesisWorkshop/blob/main/README.md#2i-lab-1---cloning-git-files-and-viewing-directory-contents)
-    2. [Commands to simulate a RTL design]()
+    2. [Commands to simulate a RTL design](#22-commands-to-simulate-a-rtl-design)
     3. [Simulation](https://github.com/jargonized/sky130RTLDesignandSynthesisWorkshop/blob/main/README.md#2iii-lab-2---to-simulate-a-counter)
-    4. [Commands to run Synthesis]()
+    4. [Commands to run Synthesis](https://github.com/jargonized/sky130RTLDesignandSynthesisWorkshop#24-commands-to-run-synthesis)
     5. [Synthesis](https://github.com/jargonized/sky130RTLDesignandSynthesisWorkshop/blob/main/README.md#2v-lab-3---to-synthesize-a-rtl-design)
-3. [Decoding Library File(s)](#3-decoding-library-file(s))
+3. [Decoding Library File(s)](https://github.com/jargonized/sky130RTLDesignandSynthesisWorkshop#3-decoding-library-files)
     1. [Analysing .lib file](https://github.com/jargonized/sky130RTLDesignandSynthesisWorkshop/blob/main/README.md#31-lab-4---analysing-lib-file)
     
 4. [Hierarchial vs Flat Synthesis](#4-hierarchial-vs-flat-synthesis)
