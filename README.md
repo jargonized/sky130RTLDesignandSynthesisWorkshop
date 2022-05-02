@@ -58,7 +58,7 @@ Synthesis is carried out to convert RTL to gate level logic. The gates definitio
 - Fast cells are required to meet setup time criteria (Tclk > TcqA + Tcombi +TsetupB )
 - Slow cells are required to meet the hold time criteria (TholdB < TcqA + Tcombi )
 
-![timing example](/docs/eg1.png)
+![timing example](/docs/eg1.jpeg)
 
 Selection of the cells are guided by the constraints provided by the designer.
 
@@ -247,7 +247,7 @@ Flops are initialised using a set or reset pin. These pins can be synchronous or
 - Synchronous - Set or reset on active low/ active high signal sampled at rising/falling edge of the clock.
 - Asynchronous - Set or reset on active high/low activity observed on the pin.
 
-![flop example](/docs/eg2.png)
+![flop example](/docs/eg2.jpeg)
 
 A single flop can have both sync and async pins. Set and reset pin when used together in a flop can cause race conditions.
 
@@ -481,7 +481,7 @@ endmodule
 
 Gate level simualtion is verifying the logical correctness of the device under test with it's **netlist**. GLS is also used to ensure timing of the module(given the gate level model is delay annotated).
 
-![gls](/docs/eg3.png)
+![gls](/docs/eg3.jpeg)
 
 Gate level models are of two types:
 - TIming aware (delay annotated + functionality)
