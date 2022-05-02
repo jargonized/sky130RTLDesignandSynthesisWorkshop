@@ -50,7 +50,7 @@ In this workshop, **Verilog** was used as the target HDL language. **iverilog** 
 
 # 2. Verilog RTL and Synthesis
 
-The functional behaviour of any circuit design is verified by simulating the device under test(DUT). Famous simulation tools include LTSpice and NgSpice for analog circuits. ModelSim simulator is widely used to simulate digital circuits. To verify the behaviour of a circuit, test cases pertaining to various use cases should be fed and the corresponding output should be observed and analysed. Simulations often reveal the functionality and the potential pitfalls associated with the design. 
+The functional behaviour of any circuit design is verified by simulating the device under test (DUT). Famous simulation tools include LTSpice and NgSpice for analog circuits. ModelSim simulator is widely used to simulate digital circuits. To verify the behaviour of a circuit, test cases pertaining to various use cases should be fed and the corresponding output should be observed and analysed. Simulations often reveal the functionality and the potential pitfalls associated with the design. 
 
 To simulate digital circuits, a test signal can be **forced** on the simulator or a **testbench** can be written to automate the simulation process. *Testbench* applies stimulus(often known as test vectors) to the design. A simulator evaluates output when a change in the input is detected. Any simulator on applying stimulus to the DUT generates a **.vcd** file as output which can be opened using a VCD waveform viewer (gtkwave in this workshop).
 
@@ -161,7 +161,7 @@ $ write_verilog -noattr <filename> //to write netlist as .v file
 
 # 3. Decoding Library Files
 
-Lib file is a short form of Liberty Timing file. Liberty syntax is followed to write a .lib file. LIB file is an ASCII representation of timing and power parameter associated with cells inside the standard cell library of a particular technology node. Lib file is basically a timing model file which contains cell delay, cell transition time, setup and hold time requirement of the cell. So Lib file basically contains timing and electrical characteristics of a cell or macros. Lib file is generated and provided to ASIC designer by a standard cell library vendor or Foundry if the foundry provides a standard cell library. 
+A .lib file is a short form of Liberty Timing file. Liberty syntax is followed to write a .lib file. LIB file is an ASCII representation of timing and power parameter associated with cells inside the standard cell library of a particular technology node. Lib file is basically a timing model file which contains cell delay, cell transition time, setup and hold time requirement of the cell. So Lib file basically contains timing and electrical characteristics of a cell or macros. Lib file is generated and provided to ASIC designer by a standard cell library vendor or Foundry if the foundry provides a standard cell library. 
 
 The process corner refers to the variation into fabrication parameters used to apply during integrated circuit design to the semiconductor wafer. Inconsistency during design and deviation of voltage and temperature during its operation widens the worst-case margin and significantly degrades the performance. 
 
@@ -484,7 +484,7 @@ Gate level simualtion is verifying the logical correctness of the device under t
 ![gls](/docs/eg3.jpeg)
 
 Gate level models are of two types:
-- TIming aware (delay annotated + functionality)
+- Timing aware (delay annotated + functionality)
 - Functional
 
 ## 8.1 - Lab 10 - Gate level simulation observation
@@ -806,7 +806,7 @@ The outcomes of this workshop are as follows:
  - if, case constructs
  - for loop and for generate constructs
 
-Hand written notes taken during the 5-day course of th workshop - [Notes](/docs/VSD_RTL_Workshop_Notes.pdf)
+Hand written notes taken during the 5-day course of the workshop - [Notes](/docs/VSD_RTL_Workshop_Notes.pdf)
 
 # 12. Acknowledgement
 
