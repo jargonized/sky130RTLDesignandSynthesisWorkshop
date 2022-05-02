@@ -54,11 +54,26 @@ The functional behaviour of any circuit design is verified by simulating the dev
 
 To simulate digital circuits, a test signal can be **forced** on the simulator or a **testbench** can be written to automate the simulation process. *Testbench* applies stimulus(often known as test vectors) to the design. A simulator evaluates output when a change in the input is detected. Any simulator on applying stimulus to the DUT generates a **.vcd** file as output which can be opened using a VCD waveform viewer (gtkwave in this workshop).
 
+Synthesis is carried out to convert RTL to gate level logic. The gates definitions are provided by the chip manufacturer in the form of .lib file with necessary verilog models of the cells. All basic gates are a part of the .lib file and different flavours(varients) of the same gate are present to account for:
+- Fast cells are required to meet setup time criteria (Tclk > TcqA + Tcombi +TsetupB )
+- Slow cells are required to meet the hold time criteria (TholdB < TcqA + Tcombi )
+
+![timing example](/docs/eg1.png)
+
+Selection of the cells are guided by the constraints provided by the designer.
+
+Below are the RTL files used in the course.
+
 | ![files](docs/Day02/2022-05-01%20(8).png) | 
 |:--:| 
 | Files used throughout the course|
 
-## 2.i Lab 1 - Cloning git files and viewing directory contents
+## 2.1 Lab 1 - Cloning git files and viewing directory contents
+
+First step of this workshop was to import the required files on the remote machine for the files to be avaiable locally. Steps that were acrried out:
+- To create a directory (VLSI in my case)
+- To clone the required files [Link to Files](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop)
+- To view the cloned files
 
 | ![Creating directory](docs/Day01/2022-04-27%20(2).png) | 
 |:--:| 
@@ -66,13 +81,22 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 | ![Cloning required files](docs/Day01/2022-04-27%20(3).png) |
 |:--:| 
-| To clone required .lib and verilog files [Link to Files](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop)|
+| To clone required .lib and verilog files |
 
 | ![Cloning required files](docs/Day01/2022-04-27%20(4).png) | 
 |:--:| 
 | To view the files|
 
-## 2.iii Lab 2 - To simulate a counter
+## 2.2 Commands to simulate a RTL Design
+
+```
+$ iverilog module1.v tb_module1.v // to generate a.out file - icnlude all design files for hierarchial design and top module's tb in case of multiple modules
+$ ./a.out // to generate .vcd file
+$ gtkwave tb_module1.vcd //to view the waveform
+// use respective file names
+```
+
+## 2.3 Lab 2 - To simulate a counter
 
 | ![Simulation commands](docs/Day01/2022-04-27%20(7).png) | 
 |:--:| 
@@ -82,7 +106,21 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 |:--:| 
 | GTKWave Window |
 
-## 2.v Lab 3 - To synthesize a RTL design
+## 2.4 Commands to run synthesis
+
+```
+$ cd <path where verilog files are stored>
+$ yosys // to invoke synthesiser
+$ read_liberty -lib <path to lib file> // to read standard cells
+$ read_verilog <module files> //to read RTL design(s)
+$ synth -top module_name
+$ abc -liberty <path to .lib file> // to generate netlist
+$ show // to view the synthesised design
+$ write_verilog -noattr <filename> //to write netlist as .v file
+// use respective file names
+```
+
+## 2.5 Lab 3 - To synthesize a RTL design
 
 | ![Launch yosys](docs/Day01/2022-04-27%20(8).png) | 
 |:--:| 
@@ -123,6 +161,18 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 # 3. Decoding Library Files
 
+Lib file is a short form of Liberty Timing file. Liberty syntax is followed to write a .lib file. LIB file is an ASCII representation of timing and power parameter associated with cells inside the standard cell library of a particular technology node. Lib file is basically a timing model file which contains cell delay, cell transition time, setup and hold time requirement of the cell. So Lib file basically contains timing and electrical characteristics of a cell or macros. Lib file is generated and provided to ASIC designer by a standard cell library vendor or Foundry if the foundry provides a standard cell library. 
+
+The process corner refers to the variation into fabrication parameters used to apply during integrated circuit design to the semiconductor wafer. Inconsistency during design and deviation of voltage and temperature during its operation widens the worst-case margin and significantly degrades the performance. 
+
+Process variations (in CMOS technology) - Slownslowp, FastnFastp, SlownFastp, FastnSlowp, Typical
+
+Best case scenario - Quick process, maximum voltage and lowest temperature.
+
+Worst case scenario - Slow process, low voltage and high temperature.
+
+Standard library cells can be better understood by analysing it's corresponding verilog model.
+
 ## 3.1 Lab 4 - Analysing .lib file
 
 | ![Initial lines of .lib file](docs/Day02/1.png) | 
@@ -149,7 +199,11 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 
 # 4. Hierarchial vs Flat Synthesis
 
+Modularity is used to implement almost all digital circuits today. Dividing a complex circuits into smaller blocks helps in faster implementation, debugging, and optimisation. It also helps us tackle the memory limitations of the hardware used to design the logic. A design can be hierarchial either physically or logically.
+
 ## 4.1. Lab 5 - Hierarchial Synthesis and flattened design
+
+A circuit with two sub-modules instantiated in synthesised and analysed below. The output shows the deisgn without elaborating the submodules.
 
 | ![mul_mod_synth](docs/Day02/2022-05-01%20(10).png) | 
 |:--:| 
@@ -163,15 +217,37 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 |:--:| 
 | Hierarchial design output |
 
+```
+$ flatten // used to flatten the design such that even the 
+//submodules' gate level implementation can be viewed.
+
+```
+
 | ![mul_mod_synth3](docs/Day02/2022-05-01%20(20).png) | 
 |:--:| 
 | Flattened Design|
+
+Any sub module can be synthesised separately. This is advantageous because:
+- If the same module is replicated n times, synthesis result can also be replicated.
+- Divide and conquer method for massive designs
+
+**Note:** NAND implementation is preferred over NOR because stacking of PMOS demands more width for reasonable logical effort.
+
+[Logical Effort in detail](https://www.cerc.utexas.edu/~jaa/vlsi/lectures/6-1.pdf)
 
 | ![mul_mod_synth4](docs/Day02/2022-05-01%20(25).png) | 
 |:--:| 
 | Synthesis of a sub module|
 
 # 5. Flop Coding Style
+
+A glitch is any unwanted pulse at the output of a combinational gate. In other words, a glitch is a small spike that happens at the output of a gate. A glitch happens generally, if the delays to the combinational gate output are not balanced. Cascading combinational logic worsens the glitches observed on outputs. Flops can be deployed to provide shielding between combinational stages thus eliminating the rippling effect of glitches.
+
+Flops are initialised using a set or reset pin. These pins can be synchronous or asynchronous.
+- Synchronous - Set or reset on active low/ active high signal sampled at rising/falling edge of the clock.
+- Asynchronous - Set or reset on active high/low activity observed on the pin.
+
+A single flop can have both sync and async pins. Set and reset pin when used together in a flop can cause race conditions.
 
 ## 5.1 - Lab 6 - Flop models
 
@@ -183,11 +259,26 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 |:--:| 
 | Simulation Outputs |
 
+**Note:** While synthesising modules that includes flop(s), an additional command is to be executed to include the flop related .lib files. This is because, at times, foundries provide a separate file for flop mapping.
+
+```
+$ dfflibmap -liberty <path to lib file> 
+//same as .lib file used for abc step in this case
+```
+
 | ![muxn](docs/Day02/5.png) | 
 |:--:| 
 | Synthesised Design - Asynchronous Reset vs Synchronous Reset |
 
 ## 5.2 - Lab 7 - Interesting Optimisations
+
+| ![mul_mod_synth4](docs/Day02/2022-05-01%20(55).png) | 
+|:--:| 
+|Verilog Model of mul2 and mult8|
+
+The above codes show multiplication by 2 and multiplication by 9. But when the modules were synthesised, no multiplier block can be observed. 
+
+Truth Table realisation revealed ax2 in binary is a appended with a zero. ax9 can be written as ax(8+1) which is ax8 + ax1 which can be further reduced as 'a' appended with three zeroes and then 'a' added to it thus giving {a,a}.
 
 | ![mul3](docs/Day02/3.png) | 
 |:--:| 
@@ -198,6 +289,8 @@ To simulate digital circuits, a test signal can be **forced** on the simulator o
 | ax9 Multiplier without multiplier cell |
 
 # 6. Combinational Optimisations
+
+Optimisation is required to squeeze the 
 
 ## 6.1 Lab 8 - Optimisation of Combinational Logic
 
@@ -346,6 +439,10 @@ Handwritten notes taken during the 5-day course of th workshop - [Notes](/docs/V
 The above work was carried out as a part of the 5-day workshop on RTL Design organised by VLSI System Design. I am greatly indebted to Kunal Ghosh (course instructor), Shon Taware (Teaching and Technical Assistant) and the entire VSD Team for this great learning experience and immense guidance provivded throughout the workshop.
 
 # 13. Bibliography
+
+1. [Library Files](https://www.teamvlsi.com/2020/05/lib-and-lef-file-in-asic-design.html)
+2. [Glitches](https://vlsiuniverse.blogspot.com/2017/10/glitches-in-combinational-circuits.html)
+3. 
 
 
 
